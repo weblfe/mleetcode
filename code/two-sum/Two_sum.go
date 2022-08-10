@@ -1,4 +1,6 @@
-package two_sum
+package code
+
+import "sort"
 
 /// 本题的思路
 /// 顺向： 1. 遍历求和
@@ -14,9 +16,29 @@ func TwoSum(nums []int, target int) []int {
 	var bucket = make(map[int]int)
 	for k, v := range nums {
 		if i, ok := bucket[target-v]; ok {
-			return []int{i,k}
+			return []int{i, k}
 		}
 		bucket[v] = k
+	}
+	return []int{}
+}
+
+func TwoSum2(nums []int, target int) []int {
+	var (
+		count = len(nums)
+	)
+	// 有序数组数组，sum
+	sort.Ints(nums)
+	for i, j := 0, count-1; i < j; {
+		sum := nums[i] + nums[j]
+		if sum == target {
+			return []int{i, j}
+		}
+		if sum > target {
+			j--
+		} else {
+			i++
+		}
 	}
 	return []int{}
 }
