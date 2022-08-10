@@ -1,0 +1,8 @@
+.idea
+*.log
+*.exe
+.DS_Store
+*.out
+*.toml
+tmp/
+.vscode
