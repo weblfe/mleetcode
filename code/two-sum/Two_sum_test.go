@@ -32,6 +32,7 @@ func TestTwoSum(t *testing.T) {
 	for i, v := range caseList {
 		t.Run(fmt.Sprintf("%d", i), func(t *testing.T) {
 			rs := TwoSum(v.list, v.target)
+			t.Log(v.list, v.target)
 			if !eq(rs, v.exp) {
 				t.Errorf("two sum %v ,target: %d , exp: %v, but give : %v", v.list, v.target, v.exp, rs)
 			}
